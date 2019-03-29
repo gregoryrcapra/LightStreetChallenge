@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Light Street Challenge">
+    <meta name="author" content="Greg Capra">
+    <title>Netflix Financial Data</title>
+
+    @Styles.Render("~/assets/css")
+    @Scripts.Render("~/assets/js")
+    <!--[if lte IE 9]>
+        <link href="assets/css/main-ie.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/main-ie-part2.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+</head>
+
+<body class="sidebar-fixed topnav-fixed dashboard2">
+    <!-- WRAPPER -->
+    <div id="wrapper" class="wrapper">
+        <!-- TOP BAR -->
+        <div class="top-bar navbar-fixed-top" style="height:120px">
+            <div class="container">
+                <div class="clearfix">
+                    <a href="#" class="pull-left toggle-sidebar-collapse"><i class="fa fa-bars"></i></a>
+                    <!-- logo -->
+                    <div class="pull-left left">
+                        <a style="padding:26px;color:red;font-size:30px" class="navbar-brand" href="~/Home/Index">NFLX</a>  
+                    </div>
+                    <div class="wrapper pull-left left" style="color:white">
+                        <div style="float:left">
+                            <h2 id="currentPrice"></h2>
+                        </div>
+                        <div>
+                            <span id="delta"></span>
+                            <img id="arrowIcon" src="" width="20" height="20" style="vertical-align:middle" />
+                        </div>
+                    </div>
+                    <div class="wrapper pull-left left" style="color:white;padding:30px;vertical-align:middle">
+                        <div style="float:left">
+                            <ul style="list-style:none">
+                                <li><span id="mktCap"></span></li>
+                                <li><span id="peRatio"></span></li>
+                                <li><span id="outstandingShares"></span></li>
+                            </ul>                                             
+                        </div>
+                        <div style="float:right">
+                            <ul style="list-style:none">
+                                <li><span id="nxtEarnDate"></span></li>
+                                <li><span id="nxtDivDate"></span></li>
+                                <li><span id="week52High"></span></li>
+                                <li><span id="week52Low"></span></li>
+                            </ul>                           
+                        </div>
+                    </div>
+                    
+                    <!-- end logo -->
+                    
+                    <div class="pull-right">
+                        <a href="https://media.netflix.com/en/" target="_blank"><img src="~/assets/img/netflix_logo.jpg" width="180" height="100" /></a>
+                    </div>
+                </div>
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- END TOP BAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="left-sidebar" class="left-sidebar">
+            <!-- main-nav -->
+            <div class="sidebar-scroll">
+                <nav class="main-nav">
+                    <ul class="main-menu">
+                        <li>
+                            <a href="~/Home/HistoricalConsensus">
+                                <i class="fa fa-bar-chart fa-fw"></i><span class="text-info">   Historical &amp; Consensus</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Home/OutsideSources">
+                                <i class="fa fa-book fa-fw"></i><span class="text-info">   Outside Sources</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-sub-menu-toggle">
+                                <i class="fa fa-users fa-fw"></i><span class="text-info">   Competitors</span>
+                                <i class="toggle-icon fa fa-angle-left"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="Amazon">
+                                    <a href="~/Home/Amazon">
+                                        <i class="fa fa-amazon fa-fw"></i><span class="text-info">   Amazon Prime Video</span>
+                                    </a>
+                                </li>
+                                <li id="Apple">
+                                    <a href="~/Home/Apple">
+                                        <i class="fa fa-apple fa-fw"></i><span class="text-info">   Apple Streaming Service</span>
+                                    </a>
+                                </li>
+                                <li id="Disney">
+                                    <a href="~/Home/Disney">
+                                        <img src="~/assets/img/disney_logo.png" height="20" width="20"/><span class="text-info">   Disney+</span>
+                                    </a>
+                                </li>
+                                <li id="Hulu">
+                                    <a href="~/Home/Hulu">
+                                        <img src="~/assets/img/hulu_image.png" height="20" width="20"><span class="text-info">   Hulu</span>
+                                    </a>
+                                </li>                      
+                                <li id="WarnerMedia">
+                                    <a href="~/Home/WarnerMedia">
+                                        <img src="~/assets/img/warner_media_icon.png" height="20" width="20"><span class="text-info">   Warner Media</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /main-nav -->
+            </div>
+        </div>
+        <!-- END LEFT SIDEBAR -->
+        <!-- MAIN CONTENT WRAPPER -->
+        <div id="main-content-wrapper" class="content-wrapper ">
+
+            <!--render the main part of the screen-->
+            @RenderBody()
+
+            <!-- FOOTER -->
+            <footer class="pull-right" style="padding-top: 150px">
+                <p>&copy; @DateTime.Now.Year - Author: Greg Capra</p>
+            </footer>
+            <!-- END FOOTER -->
+
+        </div>
+        <!--END MAIN CONTENT WRAPPER -->
+
+    </div>
+    <!-- END WRAPPER -->
+
+</body>
+
+</html>
+
+@Styles.Render("~/ViewScripts/Shared/_Layout.css")
+@Styles.Render("~/assets/css/skins/custom.css")
+@Scripts.Render("~/ViewScripts/Shared/_Layout.js")
